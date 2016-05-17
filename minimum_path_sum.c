@@ -19,6 +19,12 @@ int minPathSum(int **, int, int);
 int **gridGenerator(int, int);
 int **get2DArray(int rows, int cols);
 
+/**
+ * Driver Function:
+ *      Get n and m from the user
+ *      Generates an random grid of user-given dimensions
+ *      prints the minimum path sum
+ */
 int main(void)
 {
     int n = 5, m = 4;
@@ -31,6 +37,10 @@ int main(void)
     return 0;
 }
 
+/**
+ * get2DArray(rows, columns) : int**
+ *      allocator for a 2D array of dimensions rowsxcolumns
+ */
 int **get2DArray(int rows, int cols)
 {
     int **mat = (int **) malloc((size_t) rows * sizeof (int *));
@@ -41,6 +51,12 @@ int **get2DArray(int rows, int cols)
     return mat;
 }
 
+/**
+ * gridGenerator(rows, columns) : int**
+ *      create a 2D array,
+ *      fill the grid with random integers between 0 and 49
+ *      return the array
+ */
 int **gridGenerator(int rows, int cols)
 {
     int **grid = get2DArray(rows, cols);
@@ -52,6 +68,25 @@ int **gridGenerator(int rows, int cols)
     return grid;
 }
 
+/**
+ * minPathSum(grid, rows, columns) : int
+ *      create new `pathSumGrid` of same dimensions as `grid`
+ *      fill the first row:
+ *          for idx = 0 to cols:
+ *              pathSumGrid[0][idx] = grid[0][idx] + pathSumGrid[0][idx - 1]
+ *      
+ *      fill the leftmost column:
+ *          for idx = 0 to rows:
+ *              pathSumGrid[idx][0] = grid[idx][0] + pathSumGrid[idx - 1][0]
+ *      
+ *      At this point if we get an element from the top row or leftmost column of pathSumGrid,
+ *      that element contains the sum of the path from grid[0][0] to that point.
+ *      Now we can complete filling pathSumGrid from pathSumGrid[1][1], Generally,
+ *          pathSumGrid[i][j] = min(pathSumGrid[i][j-1], pathSumGrid[i-1][j]) + grid[i][j] ; i, j >= 1
+ *      
+ *      Finally, after filling the pathSumGrid, we can get the answer (minimum path sum) by simply 
+ *      looking at the last element of the pathSumGrid
+ */
 int minPathSum(int **grid, int rows, int cols)
 {
     int **pathSumGrid = get2DArray(rows, cols);
