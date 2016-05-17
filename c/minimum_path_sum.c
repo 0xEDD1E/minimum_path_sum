@@ -39,11 +39,11 @@ int main(void)
     // read user's grid 'space-separrated' columns and 'new-line separated' rows
     for (int i = 0; i < rows; i++)
     	for (int j = 0; j < cols; j++) {
-    	    int tmp;                       // if user input ,
-	    scanf("%d", &tmp);             // a negative integer,
-	    tmp = (tmp < 0) ? -tmp : tmp;  // only the absolute value is considered.
-	    grid[i][j] = tmp;
-	}
+    	    int tmp;                   		// if user input ,
+	    	scanf("%d", &tmp);              // a negative integer,
+	    	tmp = (tmp < 0) ? -tmp : tmp;   // take the absolute value.
+	    	grid[i][j] = tmp;
+		}
 
     printf("%d\n", minPathSum(grid, rows, cols));
 
