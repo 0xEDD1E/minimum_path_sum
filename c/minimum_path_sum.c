@@ -30,20 +30,20 @@ int main(void)
     int rows, cols;
     scanf("%d %d", &rows, &cols);
 
-	rows = (rows < 0) ? -rows : rows; // get the absolute values
-	cols = (cols < 0) ? -cols : cols; // of `rows` and `cols`
+    rows = (rows < 0) ? -rows : rows; // get the absolute values
+    cols = (cols < 0) ? -cols : cols; // of `rows` and `cols`
 
     //int **grid = gridGenerator(n, m);
-	int **grid = get2DArray(rows, cols);
+    int **grid = get2DArray(rows, cols);
 
-	// read user's grid 'space-separrated' columns and 'new-line separated' rows
-	for (int i = 0; i < rows; i++)
-		for (int j = 0; j < cols; j++) {
-			int tmp;                       // if user input ,
-			scanf("%d", &tmp);             // a negative integer,
-			tmp = (tmp < 0) ? -tmp : tmp;  // only the absolute value is considered.
-			grid[i][j] = tmp;
-		}
+    // read user's grid 'space-separrated' columns and 'new-line separated' rows
+    for (int i = 0; i < rows; i++)
+    	for (int j = 0; j < cols; j++) {
+    	    int tmp;                       // if user input ,
+	    scanf("%d", &tmp);             // a negative integer,
+	    tmp = (tmp < 0) ? -tmp : tmp;  // only the absolute value is considered.
+	    grid[i][j] = tmp;
+	}
 
     printf("%d\n", minPathSum(grid, rows, cols));
 
