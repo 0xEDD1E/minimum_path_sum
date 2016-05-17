@@ -36,7 +36,7 @@ int main(void)
     //int **grid = gridGenerator(n, m);
     int **grid = get2DArray(rows, cols);
 
-    // read user's grid 'space-separrated' columns and 'new-line separated' rows
+    // read user's grid 'space-separated' columns and 'new-line separated' rows
     for (int i = 0; i < rows; i++)
     	for (int j = 0; j < cols; j++) {
     	    int tmp;                   		// if user input ,
