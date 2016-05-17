@@ -41,7 +41,7 @@ int main(void)
 		for (int j = 0; j < cols; j++) {
 			int tmp;                       // if user input ,
 			scanf("%d", &tmp);             // a negative integer,
-			tmp = (tmp < 0) ? -tmp : tmp;  // only the absolute value is considered.
+			tmp = (tmp < 0) ? -tmp : tmp;  // take the absolute value.
 			grid[i][j] = tmp;
 		}
 
