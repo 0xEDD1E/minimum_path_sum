@@ -19,7 +19,7 @@ here `PSG` is the additional path Sum grid, and `G` is the given grid. Initially
 
 You can find a solution in `C` in `minimum_path_sum.c`
 
-### Anaysis
+### Analysis
 + Runtime Complexity: O(rows * columns)
 + Space Complexity  : O(rows * columns)
 > Space Complexity of this solution can be optimized to be inplace, that is we can modify this program, not to maintain additional grid, but we can modify the given grid, as `PSG = G`. However, I don't like it because it harms the original grid.
