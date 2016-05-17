@@ -43,7 +43,7 @@ int main(void)
 	    	scanf("%d", &tmp);              // a negative integer,
 	    	tmp = (tmp < 0) ? -tmp : tmp;   // take the absolute value.
 	    	grid[i][j] = tmp;
-		}
+        }
 
     printf("%d\n", minPathSum(grid, rows, cols));
 
