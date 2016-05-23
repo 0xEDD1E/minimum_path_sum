@@ -33,16 +33,21 @@ int main(void)
     rows = (rows < 0) ? -rows : rows; // get the absolute values
     cols = (cols < 0) ? -cols : cols; // of `rows` and `cols`
 
+	if (!rows || !cols) {
+		printf("invalid grid!\n", );
+		return 1; // grid shold be 2D
+	}
+
     //int **grid = gridGenerator(n, m);
     int **grid = get2DArray(rows, cols);
 
     // read user's grid 'space-separated' columns and 'new-line separated' rows
     for (int i = 0; i < rows; i++)
-    	for (int j = 0; j < cols; j++) {
-    	    int tmp;                   	    // if user input ,
-	    scanf("%d", &tmp);              // a negative integer,
-	    tmp = (tmp < 0) ? -tmp : tmp;   // take the absolute value.
-	    grid[i][j] = tmp;
+        for (int j = 0; j < cols; j++) {
+            int tmp;                   	    // if user input ,
+            scanf("%d", &tmp);              // a negative integer,
+            tmp = (tmp < 0) ? -tmp : tmp;   // take the absolute value.
+            grid[i][j] = tmp;
         }
 
     printf("%d\n", minPathSum(grid, rows, cols));
@@ -127,5 +132,5 @@ int minPathSum(int **grid, int rows, int cols)
             pathSumGrid[i][j] = min(pathSumGrid[i - 1][j] + grid[i][j], pathSumGrid[i][j - 1] + grid[i][j]);
 
     // return the last element of pathSumGrid
-    return pathSumGrid[rows - 1][cols -1];
+    return pathSumGrid[!rows ? 0 : rows - 1][!cols ? 0 : cols -1];
 }
