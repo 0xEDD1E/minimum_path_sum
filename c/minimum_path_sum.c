@@ -132,5 +132,5 @@ int minPathSum(int **grid, int rows, int cols)
             pathSumGrid[i][j] = min(pathSumGrid[i - 1][j] + grid[i][j], pathSumGrid[i][j - 1] + grid[i][j]);
 
     // return the last element of pathSumGrid
-    return pathSumGrid[!rows ? 0 : rows - 1][!cols ? 0 : cols -1];
+    return pathSumGrid[rows - 1][cols -1];
 }
