@@ -36,7 +36,7 @@ int main(void)
     if (!rows || !cols) {
         printf("invalid grid!\n", );
         return 1; // grid shold be 2D
-	}
+    }
 
     //int **grid = gridGenerator(n, m);
     int **grid = get2DArray(rows, cols);
