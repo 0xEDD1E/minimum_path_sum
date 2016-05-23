@@ -33,9 +33,9 @@ int main(void)
     rows = (rows < 0) ? -rows : rows; // get the absolute values
     cols = (cols < 0) ? -cols : cols; // of `rows` and `cols`
 
-	if (!rows || !cols) {
-		printf("invalid grid!\n", );
-		return 1; // grid shold be 2D
+    if (!rows || !cols) {
+        printf("invalid grid!\n", );
+        return 1; // grid shold be 2D
 	}
 
     //int **grid = gridGenerator(n, m);
