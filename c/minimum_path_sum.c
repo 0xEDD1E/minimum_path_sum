@@ -34,7 +34,7 @@ int main(void)
     cols = (cols < 0) ? -cols : cols; // of `rows` and `cols`
 
     if (!rows || !cols) {
-        printf("invalid grid!\n", );
+        printf("invalid grid!\n");
         return 1; // grid shold be 2D
     }
 
