@@ -17,6 +17,8 @@ class MinPathSum {
         rows = Math.abs(stdin.nextInt());
         cols = Math.abs(stdin.nextInt());
 
+		if (rows == 0 || cols == 0) throw new UnsupportedOperationException("one-d grid");
+
         grid = new int[rows][cols];
 
         for (int i = 0; i < rows; i++)
@@ -55,7 +57,11 @@ class MinPathSum {
 public class minimum_path_sum {
     public static void main(String [] args) {
         MinPathSum grid = new MinPathSum();
-        grid.readgrid();
-        System.out.println(grid.minPathSum());
+        try {
+			grid.readgrid();
+        	System.out.println(grid.minPathSum());
+		} catch (UnsupportedOperationException e) {
+			System.out.println("The Grid should be a 2D grid");
+		}
     }
 }
